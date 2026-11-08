@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080b17">
+<title>InstaEngine | Premium MP4 Downloader</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ font-family:'Plus Jakarta Sans',sans-serif;
+ background:#080b17;
+ color:#fff;
+ min-height:100dvh;
+}
+body:before{
+ content:"";
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ background:
+ radial-gradient(ellipse at 80% 0%,#7823ad35,transparent 45%),
+ radial-gradient(ellipse at 0% 65%,#df277522,transparent 50%);
+ z-index:-1;
+}
+.glass{
+ background:rgba(20,24,43,.78);
+ border:1px solid rgba(255,255,255,.09);
+ backdrop-filter:blur(22px);
+ -webkit-backdrop-filter:blur(22px);
+}
+.gradient{
+ background:linear-gradient(120deg,#ffb44d,#fa398d,#9b55ff);
+}
+.gradient-text{
+ background:linear-gradient(90deg,#ffbd72,#ff64ac,#b68aff);
+ -webkit-background-clip:text;
+ background-clip:text;
+ color:transparent;
+}
+.shadow-glow{
+ box-shadow:0 12px 35px #ed398d35;
+}
+.orb{
+ position:absolute;
+ border-radius:50%;
+ filter:blur(45px);
+ pointer-events:none;
+}
+.input-box{
+ background:#090d1d;
+ border:1px solid #33384f;
+ transition:.25s;
+}
+.input-box:focus-within{
+ border-color:#f047a1;
+ box-shadow:0 0 0 3px #ec48991c;
+}
+.action-btn{
+ transition:transform .2s,filter .2s;
+}
+.action-btn:active{transform:scale(.97)}
+.action-btn:disabled{opacity:.6;cursor:wait}
+.status-dot{
+ width:7px;height:7px;
+ border-radius:50%;
+ background:#34d399;
+ box-shadow:0 0 12px #34d399;
+}
+.spinner{
+ width:19px;height:19px;
+ border:2px solid #ffffff50;
+ border-top-color:white;
+ border-radius:50%;
+ animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-8px)}
+}
+.float{animation:float 4s ease-in-out infinite}
+.progress-track{
+ height:6px;
+ background:#292e43;
+ border-radius:20px;
+ overflow:hidden;
+}
+.progress-indeterminate{
+ height:100%;
+ width:35%;
+ border-radius:20px;
+ background:linear-gradient(90deg,#ffba5c,#ec4899,#a855f7);
+ animation:travel 1.4s ease-in-out infinite;
+}
+@keyframes travel{
+ 0%{transform:translateX(-110%)}
+ 100%{transform:translateX(310%)}
+}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:#42425b;border-radius:8px}
+</style>
+</head>
+
+<body>
+
+<!-- App Header -->
+<header class="sticky top-0 z-40 glass border-x-0 border-t-0">
+ <div class="max-w-xl mx-auto px-5 py-4 flex items-center justify-between">
+  <div class="flex items-center gap-3">
+   <div class="gradient w-11 h-11 rounded-2xl flex items-center justify-center shadow-glow">
+    <i data-lucide="clapperboard" class="w-6 h-6"></i>
+   </div>
+   <div>
+    <h1 class="text-lg font-extrabold tracking-tight">
+     Insta<span class="gradient-text">Engine</span>
+    </h1>
+    <p class="text-[10px] text-slate-400 font-semibold tracking-widest">PREMIUM VIDEO TOOL</p>
+   </div>
+  </div>
+  <div class="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-2">
+   <span class="status-dot"></span>
+   <span class="text-[10px] font-bold text-emerald-300">MP4 READY</span>
+  </div>
+ </div>
+</header>
+
+<main class="max-w-xl mx-auto px-4 pb-24">
+
+ <!-- Hero -->
+ <section class="relative text-center pt-10 pb-8 overflow-hidden">
+  <div class="orb w-40 h-40 bg-pink-600/20 top-0 left-1/4"></div>
+
+  <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-pink-500/25 bg-pink-500/10 mb-5">
+   <i data-lucide="sparkles" class="w-3.5 h-3.5 text-pink-400"></i>
+   <span class="text-[11px] font-bold text-pink-300">HIGH QUALITY VIDEO DOWNLOAD</span>
+  </div>
+
+  <div class="float mx-auto w-20 h-20 rounded-[26px] gradient shadow-glow flex items-center justify-center mb-6">
+   <i data-lucide="video" class="w-10 h-10 text-white"></i>
+  </div>
+
+  <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
+   Download Reels<br>
+   <span class="gradient-text">In Original Quality</span>
+  </h2>
+
+  <p class="text-slate-400 text-sm leading-relaxed mt-4 max-w-sm mx-auto">
+   Instagram Reels और Videos को उपलब्ध सर्वोत्तम क्वालिटी में MP4 फॉर्मेट और ओरिजिनल ऑडियो के साथ डाउनलोड करें।
+  </p>
+
+  <div class="flex flex-wrap items-center justify-center gap-2 mt-5">
+   <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[11px] text-slate-300">MP4 Video</span>
+   <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[11px] text-slate-300">Original Audio</span>
+   <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[11px] text-slate-300">Best Available Quality</span>
+  </div>
+ </section>
+
+ <!-- Downloader Card -->
+ <section class="glass rounded-[28px] p-5 sm:p-7 relative overflow-hidden">
+  <div class="flex items-center justify-between mb-6">
+   <div class="flex items-center gap-2">
+    <div class="w-9 h-9 rounded-xl bg-pink-500/15 flex items-center justify-center text-pink-400">
+     <i data-lucide="link-2" class="w-5 h-5"></i>
+    </div>
+    <div>
+     <h3 class="font-extrabold text-sm">Video Downloader</h3>
+     <p class="text-[11px] text-slate-400">Paste your Instagram link</p>
+    </div>
+   </div>
+   <span class="text-[10px] font-bold text-pink-300 bg-pink-500/10 px-2.5 py-1 rounded-lg">REELS + POSTS</span>
+  </div>
+
+  <form id="downloadForm">
+   <label for="videoUrl" class="text-xs font-bold text-slate-300 block mb-2">
+    Instagram Video URL
+   </label>
+
+   <div class="input-box flex items-center rounded-2xl p-1.5 gap-1">
+    <i data-lucide="link" class="w-4 h-4 text-slate-500 ml-3 shrink-0"></i>
+    <input
+     id="videoUrl"
+     type="url"
+     required
+     placeholder="Paste Instagram Reel link..."
+     class="min-w-0 flex-1 bg-transparent outline-none text-white text-xs sm:text-sm px-2 py-3 placeholder:text-slate-600"
+    >
+    <button type="button" id="pasteBtn"
+     class="shrink-0 bg-white/10 hover:bg-white/15 border border-white/10 rounded-xl px-3 py-3 flex items-center gap-1.5 text-xs font-bold">
+     <i data-lucide="clipboard-paste" class="w-4 h-4"></i>
+     Paste
+    </button>
+   </div>
+
+   <div class="mt-5">
+    <div class="flex justify-between items-center mb-3">
+     <p class="text-xs font-bold text-slate-300">Download Format</p>
+     <span class="text-[10px] text-emerald-300 font-bold">AUTO SELECTED</span>
+    </div>
+
+    <div class="rounded-2xl p-4 border border-pink-500/40 bg-gradient-to-r from-pink-500/10 to-purple-500/10 flex items-center gap-3">
+     <div class="w-11 h-11 rounded-xl bg-pink-500/15 flex items-center justify-center shrink-0">
+      <i data-lucide="film" class="w-6 h-6 text-pink-300"></i>
+     </div>
+     <div class="flex-1 min-w-0">
+      <p class="text-sm font-extrabold">Original MP4 Video</p>
+      <p class="text-[11px] text-slate-400 mt-1">Best available video + audio</p>
+     </div>
+     <div class="w-5 h-5 rounded-full bg-pink-500 flex items-center justify-center shrink-0">
+      <i data-lucide="check" class="w-3.5 h-3.5"></i>
+     </div>
+    </div>
+   </div>
+
+   <div class="mt-4 flex items-start gap-3 rounded-xl bg-sky-500/5 border border-sky-500/15 p-3">
+    <i data-lucide="shield-check" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+    <p class="text-[11px] text-slate-400 leading-relaxed">
+     केवल सार्वजनिक या डाउनलोड करने की अनुमति वाले वीडियो इस्तेमाल करें। उपलब्ध मूल क्वालिटी सुरक्षित रखने की कोशिश की जाती है।
+    </p>
+   </div>
+
+   <button type="submit" id="downloadBtn"
+    class="action-btn gradient shadow-glow w-full rounded-2xl py-4 mt-6 flex items-center justify-center gap-3 font-extrabold text-sm">
+    <i data-lucide="download" class="w-5 h-5"></i>
+    <span id="btnText">Download MP4 Video</span>
+   </button>
+  </form>
+
+  <!-- Processing -->
+  <div id="progressBox" class="hidden mt-5 rounded-2xl border border-purple-500/25 bg-purple-500/5 p-4">
+   <div class="flex items-center gap-3 mb-4">
+    <div class="spinner"></div>
+    <div class="flex-1">
+     <p id="statusTitle" class="text-xs font-bold">Preparing your video...</p>
+     <p class="text-[11px] text-slate-400 mt-1">Downloading and processing may take some time.</p>
+    </div>
+   </div>
+   <div class="progress-track">
+    <div class="progress-indeterminate"></div>
+   </div>
+  </div>
+
+  <!-- Message -->
+  <div id="message" role="status" aria-live="polite" class="hidden mt-4 rounded-xl p-4 text-xs font-semibold leading-relaxed"></div>
+ </section>
+
+ <!-- How It Works -->
+ <section class="mt-9">
+  <div class="flex items-center gap-2 mb-5 px-1">
+   <i data-lucide="wand-sparkles" class="w-5 h-5 text-pink-400"></i>
+   <h3 class="text-base font-extrabold">How It Works</h3>
+  </div>
+
+  <div class="grid grid-cols-3 gap-3">
+   <div class="glass rounded-2xl p-3 text-center">
+    <div class="w-10 h-10 rounded-xl bg-pink-500/15 text-pink-300 flex items-center justify-center mx-auto mb-3">
+     <i data-lucide="copy" class="w-5 h-5"></i>
+    </div>
+    <p class="text-xs font-bold">Copy Link</p>
+    <p class="text-[10px] text-slate-500 mt-1">Instagram URL</p>
+   </div>
+
+   <div class="glass rounded-2xl p-3 text-center">
+    <div class="w-10 h-10 rounded-xl bg-purple-500/15 text-purple-300 flex items-center justify-center mx-auto mb-3">
+     <i data-lucide="clipboard" class="w-5 h-5"></i>
+    </div>
+    <p class="text-xs font-bold">Paste Link</p>
+    <p class="text-[10px] text-slate-500 mt-1">Insert URL</p>
+   </div>
+
+   <div class="glass rounded-2xl p-3 text-center">
+    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-300 flex items-center justify-center mx-auto mb-3">
+     <i data-lucide="download-cloud" class="w-5 h-5"></i>
+    </div>
+    <p class="text-xs font-bold">Download</p>
+    <p class="text-[10px] text-slate-500 mt-1">Save MP4</p>
+   </div>
+  </div>
+ </section>
+
+ <!-- Features -->
+ <section class="mt-8 glass rounded-3xl p-5">
+  <h3 class="font-extrabold text-sm mb-5 flex items-center gap-2">
+   <i data-lucide="zap" class="w-5 h-5 text-amber-400"></i>
+   Powerful Features
+  </h3>
+
+  <div class="space-y-5">
+   <div class="flex gap-3 items-center">
+    <div class="w-10 h-10 bg-purple-500/10 text-purple-400 rounded-xl flex items-center justify-center">
+     <i data-lucide="monitor-play" class="w-5 h-5"></i>
+    </div>
+    <div>
+     <p class="text-xs font-bold">High Quality Video</p>
+     <p class="text-[11px] text-slate-400 mt-1">Highest available source resolution</p>
+    </div>
+   </div>
+
+   <div class="flex gap-3 items-center">
+    <div class="w-10 h-10 bg-pink-500/10 text-pink-400 rounded-xl flex items-center justify-center">
+     <i data-lucide="volume-2" class="w-5 h-5"></i>
+    </div>
+    <div>
+     <p class="text-xs font-bold">Video With Sound</p>
+     <p class="text-[11px] text-slate-400 mt-1">Audio included in MP4 file when available</p>
+    </div>
+   </div>
+
+   <div class="flex gap-3 items-center">
+    <div class="w-10 h-10 bg-cyan-500/10 text-cyan-400 rounded-xl flex items-center justify-center">
+     <i data-lucide="smartphone" class="w-5 h-5"></i>
+    </div>
+    <div>
+     <p class="text-xs font-bold">Mobile Friendly</p>
+     <p class="text-[11px] text-slate-400 mt-1">Optimized for Android and desktop</p>
+    </div>
+   </div>
+  </div>
+ </section>
+
+</main>
+
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 glass border-x-0 border-b-0 z-30" style="padding-bottom:env(safe-area-inset-bottom)">
+ <div class="max-w-xl mx-auto flex justify-around items-center py-3">
+  <a href="/" class="flex flex-col items-center gap-1 text-pink-400">
+   <i data-lucide="house" class="w-5 h-5"></i>
+   <span class="text-[10px] font-bold">Home</span>
+  </a>
+  <button type="button" id="clearBtn" class="flex flex-col items-center gap-1 text-slate-400">
+   <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
+   <span class="text-[10px] font-semibold">Reset</span>
+  </button>
+  <button type="button" id="infoBtn" class="flex flex-col items-center gap-1 text-slate-400">
+   <i data-lucide="info" class="w-5 h-5"></i>
+   <span class="text-[10px] font-semibold">About</span>
+  </button>
+ </div>
+</nav>
+
+<script>
+lucide.createIcons();
+
+const form = document.getElementById("downloadForm");
+const urlInput = document.getElementById("videoUrl");
+const pasteBtn = document.getElementById("pasteBtn");
+const downloadBtn = document.getElementById("downloadBtn");
+const btnText = document.getElementById("btnText");
+const progressBox = document.getElementById("progressBox");
+const message = document.getElementById("message");
+
+let busy = false;
+
+function showMessage(text, success = false) {
+ message.className = success
+  ? "mt-4 rounded-xl p-4 text-xs font-semibold bg-emerald-500/10 border border-emerald-500/25 text-emerald-300"
+  : "mt-4 rounded-xl p-4 text-xs font-semibold bg-rose-500/10 border border-rose-500/25 text-rose-300";
+ message.textContent = text;
+}
+
+function setBusy(value) {
+ busy = value;
+ downloadBtn.disabled = value;
+ progressBox.classList.toggle("hidden", !value);
+ btnText.textContent = value
+  ? "Processing Video..."
+  : "Download MP4 Video";
+}
+
+function validInstagramUrl(value) {
+ try {
+  const url = new URL(value);
+  return (
+   ["instagram.com", "www.instagram.com"].includes(
+    url.hostname.toLowerCase()
+   ) &&
+   url.protocol === "https:" &&
+   /^\/(reel|p|tv)\//.test(url.pathname)
+  );
+ } catch {
+  return false;
+ }
+}
+
+pasteBtn.addEventListener("click", async () => {
+ try {
+  const text = await navigator.clipboard.readText();
+  urlInput.value = text.trim();
+  urlInput.focus();
+ } catch {
+  showMessage("Clipboard permission नहीं मिली। लिंक को मैन्युअली पेस्ट करें।");
+ }
+});
+
+form.addEventListener("submit", async (e) => {
+ e.preventDefault();
+ if (busy) return;
+
+ const url = urlInput.value.trim();
+
+ if (!validInstagramUrl(url)) {
+  showMessage("कृपया सही Instagram Reel या Video लिंक डालें।");
+  return;
+ }
+
+ message.classList.add("hidden");
+ setBusy(true);
+
+ try {
+  const endpoint =
+   "/api/insta-download?url=" + encodeURIComponent(url);
+
+  const response = await fetch(endpoint);
+
+  if (!response.ok) {
+   let errorText = "Video download failed.";
+   try {
+    const data = await response.json();
+    errorText = data.error || errorText;
+   } catch {}
+   throw new Error(errorText);
+  }
+
+  const contentType =
+   response.headers.get("content-type") || "";
+
+  if (!contentType.includes("video/mp4") &&
+      !contentType.includes("application/octet-stream")) {
+   throw new Error("Server did not return an MP4 video.");
+  }
+
+  const blob = await response.blob();
+
+  if (!blob.size) {
+   throw new Error("Downloaded video is empty.");
+  }
+
+  const objectUrl = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = objectUrl;
+  link.download = "InstaEngine_Video.mp4";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+
+  setTimeout(() => URL.revokeObjectURL(objectUrl), 60000);
+
+  showMessage(
+   "MP4 वीडियो तैयार है। आपके ब्राउज़र में डाउनलोड शुरू कर दिया गया है।",
+   true
+  );
+
+ } catch (err) {
+  showMessage(err.message || "कुछ समस्या आ गई।");
+ } finally {
+  setBusy(false);
+ }
+});
+
+document.getElementById("clearBtn").addEventListener("click", () => {
+ if (busy) return;
+ form.reset();
+ message.classList.add("hidden");
+ progressBox.classList.add("hidden");
+ window.scrollTo({top:0,behavior:"smooth"});
+});
+
+document.getElementById("infoBtn").addEventListener("click", () => {
+ alert(
+  "InstaEngine\n\n" +
+  "Original MP4 Video Downloader\n" +
+  "Video + Audio\n" +
+  "Best Available Quality\n\n" +
+  "Use only content you own or have permission to download."
+ );
+});
+</script>
+
+</body>
+</html>
